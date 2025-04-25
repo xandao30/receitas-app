@@ -1,5 +1,11 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import React from 'react';
+import { NavigationContainer } from '@react-navigation/native';
+import { createStackNavigator } from '@react-navigation/stack';
+import HomeScreen from './screens/HomeScreen';
+import ReceitaScreen from './screens/ReceitaScreen';
+import { Provider as PaperProvider } from 'react-native-paper';
+
+const Stack = createStackNavigator();
 
 export default function App() {
   return (
@@ -18,3 +24,16 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
 });
+
+<Stack.Navigator>
+  <Stack.Screen 
+    name="Home" 
+    component={HomeScreen} 
+    options={{ title: 'Receitas' }} 
+  />
+  <Stack.Screen 
+    name="Receita" 
+    component={ReceitaScreen} 
+    options={{ title: 'Detalhes da Receita' }} 
+  />
+</Stack.Navigator>
